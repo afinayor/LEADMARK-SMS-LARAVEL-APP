@@ -112,7 +112,7 @@
     <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
     <script>
         var editor_config = {
-            path_absolute : "/",
+            path_absolute : "{{URL::to('/')}}/",
             selector: "#content",
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -127,7 +127,8 @@
                 var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 //                var cmsURL = 'laravel-filemanager?field_name=' + field_name;
 
-                var cmsURL = '{{URL::to('laravel-filemanager?field_name=')}}' + field_name;
+//                var cmsURL = '{{URL::to('laravel-filemanager?field_name=')}}' + field_name;
+				var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name
                 console.log(cmsURL);
                 if (type == 'image') {
                     cmsURL = cmsURL + "&type=Images";
